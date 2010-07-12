@@ -9,6 +9,9 @@ require "Java/Portable.pm" ;
 
 print "\nWelcome to the Inline::Java installation procedure.\n\n" ;
 
+# Hide PerlNatives by default...
+$main::build_perl_natives = 0 ;
+
 # Grab the J2SDK argument
 my $jdk_dir = '' ;
 for (my $i = 0 ; $i < scalar(@ARGV) ; $i++){
@@ -59,6 +62,12 @@ specify your Java 2 SDK installation directory using the J2SDK
 option to Makefile.PL as such:
 
     perl Makefile.PL J2SDK=/path/to/your/j2sdk/installation
+
+You can set the JAVA_HOME environment variable to specify your
+Java 2 SDK installation directory. For example, if you are using
+the CPAN installer you can do:
+
+    JAVA_HOME=/path/to/your/j2sdk/installation cpan Inline::Java
 NO_J2SDK
 		exit(1) ;
 	}
@@ -201,6 +210,9 @@ WriteMakefile(
 		$user_arch => File::Spec->catfile('$(INST_LIBDIR)', $user_arch),
 	},
 	clean => {FILES => "$def_jdk _Inline_test $natives_test $perlinterp_test $obj_dir $server_arch $user_arch java.ts"},
+	($] >= 5.005 ?     ## Add these new keywords supported since 5.005
+		(ABSTRACT_FROM  => 'Java.pod', # retrieve abstract from module
+		AUTHOR         => 'Patrick LeBoutillier <patl@cpan.org>') : ()),
 ) ;
 
 

@@ -1,13 +1,16 @@
-# http://module-build.sourceforge.net/META-spec.html
-#XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#
-name:         Inline-Java
-version:      0.52
-version_from: Java.pm
-installdirs:  site
-requires:
+--- #YAML:1.0
+name:                Inline-Java
+version:             0.52_90
+abstract:            Write Perl classes in Java.
+license:             ~
+author:              
+    - Patrick LeBoutillier <patl@cpan.org>
+generated_by:        ExtUtils::MakeMaker version 6.42
+distribution_type:   module
+requires:     
     Inline:                        0.44
     MIME::Base64:                  0
     Test:                          1.13
-
-distribution_type: module
-generated_by: ExtUtils::MakeMaker version 6.17
+meta-spec:
+    url:     http://module-build.sourceforge.net/META-spec-v1.3.html
+    version: 1.3

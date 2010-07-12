@@ -3,7 +3,7 @@ package Inline::Java::Class ;
 use strict ;
 use Carp ;
 
-$Inline::Java::Class::VERSION = '0.52' ;
+$Inline::Java::Class::VERSION = '0.52_90' ;
 
 $Inline::Java::Class::MAX_SCORE = 10 ;
 
@@ -329,7 +329,7 @@ sub CastArgument {
 				else {
 					# We want to send a Perl object to the Java side.
 					my $ijp = new Inline::Java::Protocol(undef, $inline) ;
-					my $score = $ijp->__ISA($proto, 'org.perl.inline.java.InlineJavaPerlObject') ;
+					my $score = $ijp->__ISA('org.perl.inline.java.InlineJavaPerlObject', $proto) ;
 					if ($score == -1){
 						croak "$proto is not a kind of org.perl.inline.java.InlineJavaPerlObject" ;
 					}
