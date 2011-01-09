@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:                Inline-Java
-version:             0.52_90
+version:             0.53
 abstract:            Write Perl classes in Java.
 license:             ~
 author:              
