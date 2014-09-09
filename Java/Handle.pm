@@ -157,7 +157,7 @@ sub DESTROY {
 		 	$this->__close() ;	
 		}
 
-		$OBJECTS->{$this} = undef ;
+		delete $OBJECTS->{$this} ;
 	}
 	else {
 		Inline::Java::debug(4, "destroying Inline::Java::Handle") ;

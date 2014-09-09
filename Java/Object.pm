@@ -369,7 +369,7 @@ sub DESTROY {
 			my $proto = $priv->{proto} ;
 			$priv->{proto} = undef ;
 			$proto->{obj_priv} = undef ;
-			$PRIVATES->{$this} = undef ;
+			delete $PRIVATES->{$this} ;
 		}
 		else{
 			Inline::Java::debug(4, "script marked as DONE, object destruction not propagated to Java") ;

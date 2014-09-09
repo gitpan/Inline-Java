@@ -149,7 +149,7 @@ sub DESTROY {
 	if (! $knot){
 		Inline::Java::debug(4, "destroying Inline::Java::Array::Tie") ;
 
-		$OBJECTS->{$this} = undef ;
+		delete $OBJECTS->{$this} ;
 	}
 	else{
 		Inline::Java::debug(4, "destroying Inline::Java::Array") ;
